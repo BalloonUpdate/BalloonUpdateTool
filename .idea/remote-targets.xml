@@ -1,16 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="RemoteTargetsManager">
+    <option name="projectDefaultTargetUuid" value="a9f789c7-63b4-4c04-b227-0dc849236e8a" />
     <targets>
-      <target name="golang:latest" type="docker" uuid="a9f789c7-63b4-4c04-b227-0dc849236e8a">
+      <target name="golang:1.21" type="docker" uuid="a9f789c7-63b4-4c04-b227-0dc849236e8a">
         <config>
           <option name="targetPlatform">
             <TargetPlatform />
           </option>
+          <option name="buildImageConfig">
+            <BuildImageConfig>
+              <option name="contextFolder" value="debug" />
+              <option name="dockerFile" value="dockerfiles/linux/Dockerfile" />
+            </BuildImageConfig>
+          </option>
           <option name="buildNotPull" value="false" />
+          <option name="containerConfig">
+            <ContainerConfig>
+              <option name="runCliOptions" value="--entrypoint= --rm -e GOPROXY=https://goproxy.cn,direct -e GOSUMDB=gosum.io+ce6e7565+AY5qEHUk/qmHc5btzW45JVoENfazw8LielDsaI+lEbq6" />
+            </ContainerConfig>
+          </option>
           <option name="pullImageConfig">
             <PullImageConfig>
-              <option name="tagToPull" value="golang:latest" />
+              <option name="tagToPull" value="golang:1.20.1-alpine" />
             </PullImageConfig>
           </option>
         </config>
@@ -25,7 +37,9 @@
                 </option>
               </VolumeState>
             </option>
-            <option name="goPath" value="GOPROXY=https://proxy.golang.com.cn,direct;export GOSUMDB=gosum.io+ce6e7565+AY5qEHUk/qmHc5btzW45JVoENfazw8LielDsaI+lEbq6" />
+            <option name="goPath" value="/go" />
+            <option name="goRoot" value="/usr/local/go/bin/go" />
+            <option name="goVersion" value="go1.20.1 linux/amd64" />
             <option name="projectSourcesVolume">
               <VolumeState>
                 <option name="targetSpecificBits">

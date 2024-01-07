@@ -31,3 +31,10 @@ func SetConfigDir() string {
 	}
 	return result
 }
+func FailExitCode() {
+	if runtime.GOOS != "windows" {
+		os.Exit(1)
+	} else {
+		os.Exit(255)
+	}
+}
